@@ -19,7 +19,8 @@
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "mutantfrogs.sandbox.events.init.InitListener"
+      "mutantfrogs.sandbox.events.init.InitListener",
+      "mutantfrogs.sandbox.Sandbox"
     ],
     "stationapi:event_bus_client": [
     ],

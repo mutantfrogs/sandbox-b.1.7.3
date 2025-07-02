@@ -1,5 +1,6 @@
 package mutantfrogs.sandbox;
 
+import mutantfrogs.sandbox.items.MusicDiscs;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -7,6 +8,7 @@ import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.util.Namespace;
+
 
 public class Sandbox {
     @Entrypoint.Namespace
@@ -19,6 +21,6 @@ public class Sandbox {
 
     @EventListener
     public void registerItems(ItemRegistryEvent event){
-
+        MusicDiscs.initDiscs(NAMESPACE);
     }
 }
