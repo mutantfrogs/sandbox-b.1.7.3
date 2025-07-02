@@ -8,8 +8,8 @@ import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.item.TemplateItem;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class BloodDiamond extends TemplateItem {
-    public BloodDiamond(Identifier identifier) {
+public class BloodDiamondItem extends TemplateItem {
+    public BloodDiamondItem(Identifier identifier) {
         super(identifier);
     }
 

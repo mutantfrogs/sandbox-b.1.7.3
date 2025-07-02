@@ -1,7 +1,8 @@
 package mutantfrogs.sandbox;
 
 import mutantfrogs.sandbox.blocks.CryingObsidianBlock;
-import mutantfrogs.sandbox.items.BloodDiamond;
+import mutantfrogs.sandbox.items.BloodDiamondItem;
+import mutantfrogs.sandbox.items.ExampleItem;
 import mutantfrogs.sandbox.items.MusicDiscs;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
@@ -16,6 +17,7 @@ public class Sandbox {
     @Entrypoint.Namespace
     public static Namespace NAMESPACE;
     public static Block cryingObsidianBlock;
+    public static Item exampleItem;
     public static Item bloodDiamondItem;
 
     @EventListener
@@ -25,7 +27,8 @@ public class Sandbox {
 
     @EventListener
     public void registerItems(ItemRegistryEvent event){
-        bloodDiamondItem = new BloodDiamond(NAMESPACE.id("blood_diamond")).setTranslationKey(NAMESPACE, "blood_diamond");
+        exampleItem = new ExampleItem(NAMESPACE.id("example_item")).setTranslationKey(NAMESPACE, "example_item");
+        bloodDiamondItem = new BloodDiamondItem(NAMESPACE.id("blood_diamond")).setTranslationKey(NAMESPACE, "blood_diamond");
         MusicDiscs.initDiscs(NAMESPACE);
     }
 }

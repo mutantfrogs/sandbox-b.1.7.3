@@ -1,3 +1,4 @@
 # @ is a shorthand for the current mod id, which is sandbox. E.g: tile.@.redclay.name
 tile.@.crying_obsidian.name=Crying Obsidian
 item.@.blood_diamond.name=Blood Diamond
+item.@.example_item.name=Example Item
