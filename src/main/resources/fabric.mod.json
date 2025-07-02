@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "id": "%s",
+  "id": "sandbox",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Sandbox",
+  "description": "This is a sandbox development environment.",
   "authors": [
-    "Me!"
+    "mutantfrogs"
   ],
   "contact": {
-    "homepage": "https://glass-launcher.net/",
-    "sources": "https://github.com/calmilamsy/stationapi-example-mod"
+    "homepage": "https://mutantfro.gs/",
+    "sources": "https://github.com/mutantfrogs/sandbox-b.1.7.3"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/%s/icon.png",
+  "icon": "assets/sandbox/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "%s.events.init.InitListener"
+      "mutantfrogs.sandbox.events.init.InitListener"
     ],
     "stationapi:event_bus_client": [
     ],
@@ -27,7 +27,7 @@
     ]
   },
   "mixins": [
-    "%s.mixins.json"
+    "sandbox.mixins.json"
   ],
 
   "depends": {
