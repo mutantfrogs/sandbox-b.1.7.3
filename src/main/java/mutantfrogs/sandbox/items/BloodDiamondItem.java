@@ -1,5 +1,6 @@
 package mutantfrogs.sandbox.items;
 
+import mutantfrogs.sandbox.iWorld;
 import net.minecraft.block.Block;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -40,6 +41,7 @@ public class BloodDiamondItem extends TemplateItem {
             LightningEntity lightning = new LightningEntity(world, x, y, z);
             world.spawnEntity(lightning);
             world.playSound(x,y,z, "sandbox:scream", 0.2f, 1f);
+            ((iWorld) world).setWeatherThundering();
         }
         return true;
     }

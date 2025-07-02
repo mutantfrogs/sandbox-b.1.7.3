@@ -16,7 +16,11 @@ import net.modificationstation.stationapi.api.util.Namespace;
 public class Sandbox {
     @Entrypoint.Namespace
     public static Namespace NAMESPACE;
+
+    //blocks
     public static Block cryingObsidianBlock;
+
+    //items
     public static Item exampleItem;
     public static Item bloodDiamondItem;
 
