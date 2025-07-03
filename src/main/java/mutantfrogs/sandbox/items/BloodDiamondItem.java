@@ -44,13 +44,12 @@ public class BloodDiamondItem extends TemplateItem {
             LightningEntity lightning = new LightningEntity(world, x, y, z);
             world.spawnEntity(lightning);
             ((iWorld) world).setWeatherThundering();
-            //world.playSound(x,y,z, "sandbox:scream", 0.2f, 1f);
 
             //spawn herobrine
             HerobrineEntity herobrine = new HerobrineEntity(world);
             herobrine.setPosition(x + 0.5,y + 1,z + 0.5);
             world.spawnEntity(herobrine);
-            herobrine.lookAt(user, 180f, 180f);
+            herobrine.setLookTarget(user);
         }
         return true;
     }
