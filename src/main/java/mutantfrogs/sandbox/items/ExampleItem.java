@@ -1,4 +1,5 @@
 package mutantfrogs.sandbox.items;
+import mutantfrogs.sandbox.entities.HerobrineEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -11,9 +12,9 @@ public class ExampleItem extends TemplateItem {
     }
 
     @Override
-    public ItemStack use(ItemStack stack, World world, PlayerEntity user) {
+    public boolean useOnBlock(ItemStack stack, PlayerEntity user, World world, int x, int y, int z, int side) {
 
-        return stack;
+        return super.useOnBlock(stack, user, world, x, y, z, side);
     }
 }
 

@@ -1,5 +1,6 @@
 package mutantfrogs.sandbox.items;
 
+import mutantfrogs.sandbox.entities.HerobrineEntity;
 import mutantfrogs.sandbox.iWorld;
 import net.minecraft.block.Block;
 import net.minecraft.entity.LightningEntity;
@@ -37,11 +38,19 @@ public class BloodDiamondItem extends TemplateItem {
                 }
             }
             stack.count--;
+
+            //spawn lightning on shrine and start raining
             world.setBlock(x, y + 1, z, Block.FIRE.id);
             LightningEntity lightning = new LightningEntity(world, x, y, z);
             world.spawnEntity(lightning);
-            world.playSound(x,y,z, "sandbox:scream", 0.2f, 1f);
             ((iWorld) world).setWeatherThundering();
+            //world.playSound(x,y,z, "sandbox:scream", 0.2f, 1f);
+
+            //spawn herobrine
+            HerobrineEntity herobrine = new HerobrineEntity(world);
+            herobrine.setPosition(x + 0.5,y + 1,z + 0.5);
+            world.spawnEntity(herobrine);
+            herobrine.lookAt(user, 180f, 180f);
         }
         return true;
     }

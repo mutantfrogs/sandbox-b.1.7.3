@@ -1,12 +1,15 @@
 package mutantfrogs.sandbox;
 
 import mutantfrogs.sandbox.blocks.CryingObsidianBlock;
+import mutantfrogs.sandbox.entities.HerobrineEntity;
 import mutantfrogs.sandbox.items.BloodDiamondItem;
 import mutantfrogs.sandbox.items.ExampleItem;
 import mutantfrogs.sandbox.items.MusicDiscs;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegisterEvent;
+import net.modificationstation.stationapi.api.entity.EntityTypeFactory;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
@@ -23,6 +26,8 @@ public class Sandbox {
     //items
     public static Item exampleItem;
     public static Item bloodDiamondItem;
+
+    public static HerobrineEntity herobrine;
 
     @EventListener
     public void registerBlocks(BlockRegistryEvent event) {
