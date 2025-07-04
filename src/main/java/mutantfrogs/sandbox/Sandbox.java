@@ -1,18 +1,16 @@
 package mutantfrogs.sandbox;
 
 import mutantfrogs.sandbox.blocks.CryingObsidianBlock;
-import mutantfrogs.sandbox.entities.HerobrineEntity;
 import mutantfrogs.sandbox.items.BloodDiamondItem;
 import mutantfrogs.sandbox.items.ExampleItem;
 import mutantfrogs.sandbox.items.MusicDiscs;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegisterEvent;
-import net.modificationstation.stationapi.api.entity.EntityTypeFactory;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
+import net.modificationstation.stationapi.api.template.item.TemplateItem;
 import net.modificationstation.stationapi.api.util.Namespace;
 
 
@@ -26,8 +24,7 @@ public class Sandbox {
     //items
     public static Item exampleItem;
     public static Item bloodDiamondItem;
-
-    public static HerobrineEntity herobrine;
+    public static Item torchArrow;
 
     @EventListener
     public void registerBlocks(BlockRegistryEvent event) {
@@ -38,6 +35,7 @@ public class Sandbox {
     public void registerItems(ItemRegistryEvent event){
         exampleItem = new ExampleItem(NAMESPACE.id("example_item")).setTranslationKey(NAMESPACE, "example_item");
         bloodDiamondItem = new BloodDiamondItem(NAMESPACE.id("blood_diamond")).setTranslationKey(NAMESPACE, "blood_diamond");
+        torchArrow = new TemplateItem(NAMESPACE.id("torch_arrow")).setTranslationKey(NAMESPACE, "torch_arrow");
         MusicDiscs.initDiscs(NAMESPACE);
     }
 }

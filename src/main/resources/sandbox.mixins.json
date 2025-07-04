@@ -4,6 +4,8 @@
   "package": "mutantfrogs.sandbox.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BowItemMixin",
+    "ItemMixin",
     "WorldMixin"
   ],
   "server": [
