@@ -1,12 +1,18 @@
 package mutantfrogs.sandbox;
 
 import mutantfrogs.sandbox.blocks.CryingObsidianBlock;
+import mutantfrogs.sandbox.entities.TorchArrowEntity;
+import mutantfrogs.sandbox.entities.renderer.TorchArrowEntityRenderer;
 import mutantfrogs.sandbox.items.BloodDiamondItem;
 import mutantfrogs.sandbox.items.ExampleItem;
 import mutantfrogs.sandbox.items.MusicDiscs;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
+import net.minecraft.client.render.entity.ArrowEntityRenderer;
+import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.item.Item;
+import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegisterEvent;
+import net.modificationstation.stationapi.api.event.entity.EntityRegister;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
@@ -37,5 +43,15 @@ public class Sandbox {
         bloodDiamondItem = new BloodDiamondItem(NAMESPACE.id("blood_diamond")).setTranslationKey(NAMESPACE, "blood_diamond");
         torchArrow = new TemplateItem(NAMESPACE.id("torch_arrow")).setTranslationKey(NAMESPACE, "torch_arrow");
         MusicDiscs.initDiscs(NAMESPACE);
+    }
+
+    @EventListener
+    public void registerEntities(EntityRegister event){
+        event.register(TorchArrowEntity.class, "torch_arrow");
+    }
+
+    @EventListener
+    public void registerEntityRender(EntityRendererRegisterEvent event){
+        event.renderers.put(TorchArrowEntity.class, new TorchArrowEntityRenderer());
     }
 }
