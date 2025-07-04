@@ -147,6 +147,9 @@ public class TorchArrowEntity extends Entity {
                 if(world.getBlockId(targetBlockX, targetBlockY, targetBlockZ) == 0){
                     world.setBlock(targetBlockX, targetBlockY, targetBlockZ, Block.TORCH.id);
                 }
+                else{
+                    this.world.playSound(this, "random.fizz", 1.0F, 2.2F / (this.random.nextFloat() * 0.2F + 0.9F));
+                }
                 this.markDead();
             }
                 else {
@@ -221,7 +224,7 @@ public class TorchArrowEntity extends Entity {
                     this.x = this.x - this.velocityX / (double)var22 * 0.05F;
                     this.y = this.y - this.velocityY / (double)var22 * 0.05F;
                     this.z = this.z - this.velocityZ / (double)var22 * 0.05F;
-                    this.world.playSound(this, "random.drr", 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
+                    this.world.playSound(this, "random.drr", 0.8F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
                     this.inGround = true;
                     this.shake = 7;
                 }
@@ -267,6 +270,7 @@ public class TorchArrowEntity extends Entity {
                                     this.velocityY,
                                     this.velocityZ
                             );
+                    this.world.playSound(this, "random.fizz", 0.8F, 2.2F / (this.random.nextFloat() * 0.2F + 0.9F));
                     this.markDead(); //kill entity upon entering water
                 }
 
