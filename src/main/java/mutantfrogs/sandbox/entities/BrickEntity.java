@@ -178,7 +178,8 @@ public class BrickEntity extends Entity {
                 this.blockZ = var3.blockZ;
                 this.blockId = this.world.getBlockId(this.blockX, this.blockY, this.blockZ);
                 if(blockId == Block.GLASS.id){
-                    System.out.println("Glass!!!!!!!!!!");
+                    world.worldEvent(2001,var3.blockX,var3.blockY,var3.blockZ,this.blockId);
+                    this.world.setBlock(var3.blockX,var3.blockY,var3.blockZ, 0);
                 }
             }
 
@@ -187,7 +188,9 @@ public class BrickEntity extends Entity {
                 this.world.addParticle("brickpoof", this.x, this.y, this.z, 0.0, 0.0, 0.0);
             }
 
-            this.markDead();
+            if(blockId != Block.GLASS.id){
+                this.markDead();
+            }
         }
 
         this.x = this.x + this.velocityX;

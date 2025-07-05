@@ -46,11 +46,6 @@ public class Sandbox {
     }
 
     @EventListener
-    public void registerEntities(EntityRegister event){
-        event.register(TorchArrowEntity.class, "torch_arrow");
-    }
-
-    @EventListener
     public void registerEntityRender(EntityRendererRegisterEvent event){
         event.renderers.put(TorchArrowEntity.class, new TorchArrowEntityRenderer());
         event.renderers.put(BrickEntity.class, new ProjectileEntityRenderer(Item.BRICK.getTextureId(2)));
