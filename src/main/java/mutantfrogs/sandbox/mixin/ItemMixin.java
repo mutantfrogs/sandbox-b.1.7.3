@@ -1,5 +1,6 @@
 package mutantfrogs.sandbox.mixin;
 
+import mutantfrogs.sandbox.entities.BrickEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,6 +18,9 @@ public class ItemMixin {
     public void use(ItemStack stack, World world, PlayerEntity user, CallbackInfoReturnable<ItemStack> cir) {
         if(stack.itemId == Item.BRICK.id){
             stack.count--;
+            if (!world.isRemote) {
+                world.spawnEntity(new BrickEntity(world, user));
+            }
         }
     }
 }

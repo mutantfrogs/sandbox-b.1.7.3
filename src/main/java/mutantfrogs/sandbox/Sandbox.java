@@ -1,6 +1,7 @@
 package mutantfrogs.sandbox;
 
 import mutantfrogs.sandbox.blocks.CryingObsidianBlock;
+import mutantfrogs.sandbox.entities.BrickEntity;
 import mutantfrogs.sandbox.entities.TorchArrowEntity;
 import mutantfrogs.sandbox.entities.renderer.TorchArrowEntityRenderer;
 import mutantfrogs.sandbox.items.BloodDiamondItem;
@@ -8,8 +9,7 @@ import mutantfrogs.sandbox.items.ExampleItem;
 import mutantfrogs.sandbox.items.MusicDiscs;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
-import net.minecraft.client.render.entity.ArrowEntityRenderer;
-import net.minecraft.client.render.entity.EntityRenderer;
+import net.minecraft.client.render.entity.ProjectileEntityRenderer;
 import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegisterEvent;
 import net.modificationstation.stationapi.api.event.entity.EntityRegister;
@@ -53,5 +53,6 @@ public class Sandbox {
     @EventListener
     public void registerEntityRender(EntityRendererRegisterEvent event){
         event.renderers.put(TorchArrowEntity.class, new TorchArrowEntityRenderer());
+        event.renderers.put(BrickEntity.class, new ProjectileEntityRenderer(Item.BRICK.getTextureId(2)));
     }
 }
