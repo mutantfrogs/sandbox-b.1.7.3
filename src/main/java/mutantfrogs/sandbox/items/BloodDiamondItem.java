@@ -15,6 +15,12 @@ public class BloodDiamondItem extends TemplateItem {
         super(identifier);
     }
 
+    @Override
+    public void onCraft(ItemStack stack, World world, PlayerEntity player) {
+        super.onCraft(stack, world, player);
+        world.playSound(player,"ambient.cave.cave",1f, 1f);
+    }
+
     public boolean useOnBlock(ItemStack stack, PlayerEntity user, World world, int x, int y, int z, int side) {
         herobrineShrineCheck:
         if (world.getBlockId(x, y, z) == Block.NETHERRACK.id && world.getBlockId(x, y - 1, z) == Block.GOLD_BLOCK.id) {
