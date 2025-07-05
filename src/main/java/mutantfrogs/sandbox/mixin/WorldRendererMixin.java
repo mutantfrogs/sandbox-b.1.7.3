@@ -17,6 +17,7 @@ public class WorldRendererMixin {
 
     //define more particles in addParticle
     @Inject(method = "addParticle", at = @At("TAIL"))
+    //adding more particles strings that addParticle can reference
     public void addParticle(String particle, double x, double y, double z, double velocityX, double velocityY, double velocityZ, CallbackInfo ci){
         if (particle.equals("brickpoof")) {
 

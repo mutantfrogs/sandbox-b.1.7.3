@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "t",
+    "f"
+  ],
+  "key": {
+    "t": {
+      "item": "minecraft:torch"
+    },
+    "f": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+    "item": "sandbox:torch_arrow",
+    "count": 1
+  }
+}
