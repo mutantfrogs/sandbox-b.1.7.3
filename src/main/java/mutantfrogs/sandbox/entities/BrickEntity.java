@@ -183,12 +183,11 @@ public class BrickEntity extends Entity {
                 }
             }
 
-            this.world.playSound(this, "sandbox:brick", 1F, (1F) / (this.random.nextFloat() * 0.2F + 0.9F));
-            for (int var18 = 0; var18 < 8; var18++) {
-                this.world.addParticle("brickpoof", this.x, this.y, this.z, 0.0, 0.0, 0.0);
-            }
-
             if(blockId != Block.GLASS.id){
+                this.world.playSound(this, "sandbox:brick", 1F, (1F) / (this.random.nextFloat() * 0.2F + 0.9F));
+                for (int var18 = 0; var18 < 8; var18++) {
+                    this.world.addParticle("brickpoof", this.x, this.y, this.z, 0.0, 0.0, 0.0);
+                }
                 this.markDead();
             }
         }
