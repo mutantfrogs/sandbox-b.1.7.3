@@ -18,13 +18,27 @@ public class SpongeBlockMixin extends Block {
     @Override
     public void onPlaced(World world, int x, int y, int z) {
         byte range = 4 ; // formerly var5
-
         for (int dx = x - range; dx <= x + range; dx++) {
             for (int dy = y - range; dy <= y + range; dy++) {
                 for (int dz = z - range; dz <= z + range; dz++) {
                     if (world.getMaterial(dx, dy, dz) == Material.WATER) {
                         world.setBlock(dx,dy,dz, 0);
                         world.setBlock(x,y,z, Sandbox.wetSpongeBlock.id);
+                        for (int particleCount = 0; particleCount < 5; particleCount++) {
+                            double velocityX = world.random.nextGaussian() * 0.01;
+                            double velocityY = world.random.nextGaussian() * 0.01;
+                            double velocityZ = world.random.nextGaussian() * 0.01;
+                            world
+                                    .addParticle(
+                                            "splash",
+                                            dx + (double)(world.random.nextFloat()),
+                                            dy + (double)(world.random.nextFloat()),
+                                            dz + (double)(world.random.nextFloat()),
+                                            velocityX,
+                                            velocityY,
+                                            velocityZ
+                                    );
+                        }
                     }
                 }
             }
