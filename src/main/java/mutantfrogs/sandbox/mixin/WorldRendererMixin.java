@@ -15,9 +15,8 @@ public class WorldRendererMixin {
     @Shadow
     private Minecraft client;
 
-    //define more particles in addParticle
+    //removes modID from new streaming sounds when played on a jukebox
     @Inject(method = "playStreaming", at = @At("HEAD"), cancellable = true)
-    //adding more particles strings that addParticle can reference
     public void playStreaming(String stream, int x, int y, int z, CallbackInfo ci){
         if (stream != null) {
             if(stream.startsWith("sandbox:")){

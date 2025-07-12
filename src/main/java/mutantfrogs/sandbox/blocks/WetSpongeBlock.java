@@ -14,7 +14,7 @@ public class WetSpongeBlock extends TemplateBlock {
     }
 
     public int getDroppedItemId(int blockMeta, Random random) {
-        return Sandbox.cryingObsidianBlock.id;
+        return Sandbox.wetSpongeBlock.id;
     }
 
     @Override
