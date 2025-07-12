@@ -37,7 +37,7 @@ public class WetSpongeBlock extends TemplateBlock {
                                 velocityZ
                         );
             }
-                world.playSound((double)x + 0.5, (double)y + 0.5, (double)z + 0.5,"random.fizz",1.0f, world.random.nextFloat() * 0.4F + 0.8F);
+                world.playSound((double)x + 0.5, (double)y + 0.5, (double)z + 0.5,"random.fizz",1.0f, world.random.nextFloat() * 0.4F + 1F);
         }
     }
 }

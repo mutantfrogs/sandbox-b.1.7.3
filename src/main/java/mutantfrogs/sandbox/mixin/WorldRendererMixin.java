@@ -16,6 +16,24 @@ public class WorldRendererMixin {
     private Minecraft client;
 
     //define more particles in addParticle
+    @Inject(method = "playStreaming", at = @At("HEAD"), cancellable = true)
+    //adding more particles strings that addParticle can reference
+    public void playStreaming(String stream, int x, int y, int z, CallbackInfo ci){
+        if (stream != null) {
+            if(stream.startsWith("sandbox:")){
+              String[] streamWithoutModId = stream.split(":");
+              this.client.inGameHud.setRecordPlayingOverlay("C418 - " + streamWithoutModId[1]);
+            }
+            else{
+                this.client.inGameHud.setRecordPlayingOverlay("C418 - " + stream);
+            }
+        }
+
+        this.client.soundManager.playStreaming(stream, (float)x, (float)y, (float)z, 1.0F, 1.0F);
+        ci.cancel();
+    }
+
+    //define more particles in addParticle
     @Inject(method = "addParticle", at = @At("TAIL"))
     //adding more particles strings that addParticle can reference
     public void addParticle(String particle, double x, double y, double z, double velocityX, double velocityY, double velocityZ, CallbackInfo ci){
