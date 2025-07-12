@@ -1,6 +1,7 @@
 package mutantfrogs.sandbox;
 
 import mutantfrogs.sandbox.blocks.CryingObsidianBlock;
+import mutantfrogs.sandbox.blocks.WetSpongeBlock;
 import mutantfrogs.sandbox.entities.BrickEntity;
 import mutantfrogs.sandbox.entities.TorchArrowEntity;
 import mutantfrogs.sandbox.entities.renderer.TorchArrowEntityRenderer;
@@ -19,6 +20,8 @@ import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.template.item.TemplateItem;
 import net.modificationstation.stationapi.api.util.Namespace;
 
+import static net.minecraft.block.Block.DIRT_SOUND_GROUP;
+
 
 public class Sandbox {
     @Entrypoint.Namespace
@@ -26,6 +29,7 @@ public class Sandbox {
 
     //blocks
     public static Block cryingObsidianBlock;
+    public static Block wetSpongeBlock;
 
     //items
     public static Item exampleItem;
@@ -35,6 +39,7 @@ public class Sandbox {
     @EventListener
     public void registerBlocks(BlockRegistryEvent event) {
         cryingObsidianBlock = new CryingObsidianBlock(NAMESPACE.id("crying_obsidian")).setTranslationKey(NAMESPACE, "crying_obsidian").setHardness(10.0F).setResistance(2000.0F).setSoundGroup(Block.STONE_SOUND_GROUP).setLuminance(.6F);
+        wetSpongeBlock = new WetSpongeBlock(NAMESPACE.id("wet_sponge")).setTranslationKey(NAMESPACE, "wet_sponge").setHardness(0.6F).setSoundGroup(DIRT_SOUND_GROUP);
     }
 
     @EventListener
