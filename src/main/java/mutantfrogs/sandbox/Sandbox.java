@@ -1,5 +1,6 @@
 package mutantfrogs.sandbox;
 
+import mutantfrogs.sandbox.blocks.CopperOreBlock;
 import mutantfrogs.sandbox.blocks.CryingObsidianBlock;
 import mutantfrogs.sandbox.blocks.WetSpongeBlock;
 import mutantfrogs.sandbox.entities.BrickEntity;
@@ -38,12 +39,13 @@ public class Sandbox {
     public static Item exampleItem;
     public static Item bloodDiamondItem;
     public static Item torchArrow;
+    public static Item rawCopper;
 
     @EventListener
     public void registerBlocks(BlockRegistryEvent event) {
         cryingObsidianBlock = new CryingObsidianBlock(NAMESPACE.id("crying_obsidian")).setTranslationKey(NAMESPACE, "crying_obsidian").setHardness(10.0F).setResistance(2000.0F).setSoundGroup(Block.STONE_SOUND_GROUP).setLuminance(.6F);
         wetSpongeBlock = new WetSpongeBlock(NAMESPACE.id("wet_sponge")).setTranslationKey(NAMESPACE, "wet_sponge").setHardness(0.6F).setSoundGroup(DIRT_SOUND_GROUP);
-        copperOreBlock = new TemplateOreBlock(NAMESPACE.id("copper_ore"), 0).setTranslationKey(NAMESPACE, "copper_ore");
+        copperOreBlock = new CopperOreBlock(NAMESPACE.id("copper_ore")).setTranslationKey(NAMESPACE, "copper_ore").setHardness(3.0F).setResistance(5.0F).setSoundGroup(Block.STONE_SOUND_GROUP);
     }
 
     @EventListener
@@ -51,6 +53,7 @@ public class Sandbox {
         exampleItem = new ExampleItem(NAMESPACE.id("example_item")).setTranslationKey(NAMESPACE, "example_item");
         bloodDiamondItem = new BloodDiamondItem(NAMESPACE.id("blood_diamond")).setTranslationKey(NAMESPACE, "blood_diamond");
         torchArrow = new TemplateItem(NAMESPACE.id("torch_arrow")).setTranslationKey(NAMESPACE, "torch_arrow");
+        rawCopper = new TemplateItem(NAMESPACE.id("raw_copper")).setTranslationKey(NAMESPACE, "raw_copper");
         MusicDiscs.initDiscs(NAMESPACE);
     }
 
@@ -61,7 +64,7 @@ public class Sandbox {
     }
 
     @EventListener
-    public void addFeatures(BiomeModificationEvent event){
+    public void registerFeatures(BiomeModificationEvent event){
         NewFeatures.init(event);
     }
 }
