@@ -2,6 +2,9 @@
 tile.@.crying_obsidian.name=Crying Obsidian
 tile.@.wet_sponge.name=Wet Sponge
 tile.@.copper_ore.name=Copper Ore
+tile.@.red_leaves.name =Red Leaves
+tile.@.orange_leaves.name =Orange Leaves
+tile.@.yellow_leaves.name =Yellow Leaves
 item.@.blood_diamond.name=Blood Diamond
 item.@.example_item.name=Example Item
 item.@.torch_arrow.name=Torch Arrow
